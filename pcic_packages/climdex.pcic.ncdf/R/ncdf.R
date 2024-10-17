@@ -436,7 +436,7 @@ create.ncdf.output.files <- function(cdx.dat, f, v.f.idx, variable.name.map, ts,
 
     ## Establish variables, create file
     if(cdx.dat$var.name[x]=="spi" || cdx.dat$var.name[x]=="spei") {
-        scale.dim <- ncdim_def("scale","3,6,12 months",1:3)
+        scale.dim <- ncdim_def("scale","1,3,6,9,12,24 months",1:6)
         nc.var.list <- c(vars.ncvars, list(time.for.file$time.bnds.var, ncdf4::ncvar_def(name=cdx.dat$var.name[x], units=cdx.dat$units[x], dim=c(f.example$var[[v.example]]$dim[1:2], list(time.for.file$time.dim),list(scale.dim)),
 			missval=1e20, longname=cdx.dat$long.name[x])))
     } else if (cdx.dat$var.name[x]=="tx95t") {
